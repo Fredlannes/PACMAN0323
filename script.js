@@ -1,5 +1,7 @@
 const gameDiv = document.getElementById("game");
 const sizeCaseWidth = 28
+const scoreHtml = document.getElementById("score")
+let score = 0
 //creer le plateau (dynamique) -> ok
 //creer notre pacman
 //gerer les deplacements (sans contraintes)
@@ -53,6 +55,7 @@ document.addEventListener("keyup", (event) => {
 
 function creerPlateau(){
     let cptCase = 0;
+    scoreHtml.innerHTML = score
     layout.forEach(caseLayout => {
         let casePlateau = document.createElement("div");
         casePlateau.dataset.numerocase =  cptCase;
@@ -123,6 +126,19 @@ function checkDirection(caseDestination){
         return false
     }
     else {
+        if(caseDestination.classList.contains("point")){
+            incrementScore()
+            caseDestination.classList.remove("point")
+        }
         return true
+    }
+}
+
+function incrementScore(){
+    score++
+    scoreHtml.innerHTML = score
+    let allPoint = layout.filter(l => l == 0)
+    if(score = allPoint.length){
+        alert("C'est gagné")
     }
 }
