@@ -42,6 +42,14 @@ h1, h2{
     background-color: gray;
 }
 
+#game div.fantom {
+    background-color: blueviolet;
+    border-radius: 20%;
+    box-sizing: border-box;
+    border: black solid 3px;
+}
+
+
 #game div.point-puissance {
     border-radius: 50%;
     background-color: yellowgreen;
